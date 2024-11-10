@@ -45,4 +45,9 @@ public class BookManager {
     public static List<Book> getBooks() {
         return bookList;
     }
+
+    public static void deleteBook(Book book) {
+        bookList.remove(book);  // Remove the selected book from the list
+        saveBooksToFile();  // Save the updated list to the file
+    }
 }

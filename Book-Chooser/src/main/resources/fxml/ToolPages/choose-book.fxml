@@ -6,17 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ChooseBookController">
    <children>
-      <ScrollPane layoutX="200.0" layoutY="31.0" prefHeight="200.0" prefWidth="200.0">
+      <ScrollPane layoutX="130.0" layoutY="31.0" prefHeight="200.0" prefWidth="378.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ListView fx:id="bookListView" prefHeight="200.0" prefWidth="378.0" />
+               </children></AnchorPane>
         </content>
       </ScrollPane>
-      <ListView fx:id="bookListView" layoutX="200.0" layoutY="31.0" prefHeight="200.0" prefWidth="200.0" />
       <Button fx:id="randButt" layoutX="262.0" layoutY="254.0" mnemonicParsing="false" onAction="#randPressed" text="Randomise" />
       <Text fx:id="bookName" layoutX="220.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="159.4000244140625" />
       <Button layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#mainPressed" text="Back" />
+      <Button layoutX="524.0" layoutY="187.0" mnemonicParsing="false" onAction="#deleteSelectedBook" text="Delete" />
    </children>
 </AnchorPane>

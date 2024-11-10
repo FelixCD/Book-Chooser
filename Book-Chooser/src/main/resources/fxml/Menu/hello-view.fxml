@@ -8,7 +8,7 @@
    <children>
       <Button fx:id="chooseButton" layoutX="257.0" layoutY="155.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#chooseClick" text="Choose Book" />
       <Button layoutX="264.0" layoutY="200.0" mnemonicParsing="false" onAction="#addClick" text="Add Book" />
-      <Button layoutX="254.0" layoutY="245.0" mnemonicParsing="false" text="Remove Book" />
+      <Button layoutX="254.0" layoutY="245.0" mnemonicParsing="false" onAction="#removPress" text="Remove Book" />
       <Text layoutX="231.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please Choose An Option" />
    </children>
 </AnchorPane>

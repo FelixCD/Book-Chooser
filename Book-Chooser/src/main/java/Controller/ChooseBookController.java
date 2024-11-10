@@ -43,4 +43,15 @@ public class ChooseBookController extends MenuController{
 
         bookName.setText("Book Chosen: " + books.get(randomInt).getTitle());
     }
+
+    @FXML
+    private void deleteSelectedBook() {
+        Book selectedBook = bookListView.getSelectionModel().getSelectedItem();
+        if (selectedBook != null) {
+            // Remove the book from the ListView
+            bookListView.getItems().remove(selectedBook);
+            // Remove the book from the BookManager's list and update the file
+            BookManager.deleteBook(selectedBook);
+        }
+    }
 }
