@@ -18,7 +18,7 @@ public class MenuController {
         FXMLLoader loader = new FXMLLoader(MenuController.class.getResource(file));
         Parent root = loader.load();
         MenuController controller = loader.getController();
-        mainStage.setScene(new Scene(root,870,560));
+        mainStage.setScene(new Scene(root));
         mainStage.show();
         start(mainStage);
     }
