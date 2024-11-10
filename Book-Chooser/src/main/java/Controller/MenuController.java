@@ -24,7 +24,7 @@ public class MenuController {
     }
 
     public void mainPressed() throws IOException {
-        loadScene("/fxml/MainMenu.fxml"); //all menus but one load main menu
+        loadScene("/fxml/Menu/hello-view.fxml"); //all menus but one load main menu
     }
 
 

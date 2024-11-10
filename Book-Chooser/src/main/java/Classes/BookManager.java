@@ -8,23 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookManager {
-    private List<Book> bookList;
-    private final ObjectMapper objectMapper;  // Jackson's main class for reading and writing JSON
-    private final String fileName = "books.json";  // The name of the file where books will be saved
+    private static List<Book> bookList;
+    private static ObjectMapper objectMapper;  // Jackson's main class for reading and writing JSON
+    private static final String fileName = "books.json";  // The name of the file where books will be saved
 
-    public BookManager() {
-        bookList = new ArrayList<>();
-        objectMapper = new ObjectMapper();  // Instantiate the ObjectMapper
+    static {
+        bookList = new ArrayList<>();  // Initialize the static bookList
+        objectMapper = new ObjectMapper();  // Initialize the ObjectMapper
     }
 
-    // Method to add a new book
-    public void addBook(Book book) {
+    public static void addBook(Book book) {
         bookList.add(book);  // Add book to the list
         saveBooksToFile();  // Save the updated list to a file
     }
 
-    // Method to save the books list to a JSON file
-    private void saveBooksToFile() {
+    private static void saveBooksToFile() {
         try {
             objectMapper.writeValue(new File(fileName), bookList);  // Write the list of books to a file
         } catch (IOException e) {
@@ -32,8 +30,7 @@ public class BookManager {
         }
     }
 
-    // Method to load books from the JSON file
-    public void loadBooksFromFile() {
+    public static void loadBooksFromFile() {
         try {
             File file = new File(fileName);
             if (file.exists()) {  // Check if the file exists
@@ -45,8 +42,7 @@ public class BookManager {
         }
     }
 
-    // Method to get the list of books
-    public List<Book> getBooks() {
+    public static List<Book> getBooks() {
         return bookList;
     }
 }
