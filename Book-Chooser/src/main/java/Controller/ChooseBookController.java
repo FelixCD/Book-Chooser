@@ -3,10 +3,15 @@ package Controller;
 import Classes.Book;
 import Classes.BookManager;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
@@ -16,6 +21,7 @@ public class ChooseBookController extends MenuController{
     @FXML
     Text bookName;
     List<Book> books;
+    private ChooseBookController chooseBookController;
 
     public void initialize() {
         BookManager.loadBooksFromFile();
@@ -54,4 +60,26 @@ public class ChooseBookController extends MenuController{
             BookManager.deleteBook(selectedBook);
         }
     }
+    @FXML
+    private void addBook() throws IOException {
+        Stage popupStage = new Stage();
+
+        FXMLLoader loader = new FXMLLoader(MenuController.class.getResource("/fxml/ToolPages/add-book.fxml"));
+        Parent root = loader.load();
+
+        AddBookController addBookController = loader.getController();
+        addBookController.setPopupStage(popupStage);
+        addBookController.setChooseBookController(this);
+
+        popupStage.setScene(new Scene(root));
+
+        popupStage.show();
+        refreshListView();
+    }
+
+    public void refreshListView() {
+        books = BookManager.getBooks();
+        bookListView.getItems().setAll(books);
+    }
+
 }
